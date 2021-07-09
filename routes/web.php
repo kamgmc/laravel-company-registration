@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [RegisterController::class, 'index']);
+Route::get('/', [RegisterController::class, 'index'])->middleware("guest");
 Route::post('/', [RegisterController::class, 'create'])->name('register.user');
-Route::get('/login', [RegisterController::class, 'loginView'])->name('login.form');
+Route::get('/login', [RegisterController::class, 'loginView'])->name('login')->middleware("guest");
 Route::post('/login', [RegisterController::class, 'login'])->name('login.form');
+Route::get('/logout', [RegisterController::class, 'logout'])->name('logout')->middleware("auth");
+Route::view('/home', "home")->name('home')->middleware("auth");

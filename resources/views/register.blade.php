@@ -14,7 +14,34 @@
     </style>
 </head>
 <body class="antialiased">
-<div class="w-full max-w-screen-lg mx-auto">
+<div class="w-full max-w-screen-lg mx-auto mt-8">
+    <div class="w-full flex justify-end py-4">
+        <a class="no-underline bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 ml-4 rounded cursor-pointer"
+             href="{{ route('login') }}">
+            Iniciar sesión
+        </a>
+    </div>
+    @if(session("status"))
+        <div class="bg-blue-100 border-t-4 border-blue-500 rounded-b text-blue-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex">
+                <div>
+                    <p class="font-bold">{{session("status")}}</p>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if($errors->any())
+        <div class="bg-red-100 border-t-4 border-red-500 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex">
+                <div>
+                    <p class="font-bold">Ha ocurrido un error en el proceso de registro</p>
+                    @foreach($errors->all() as $error)
+                        <p class="text-sm">{{$error}}</p>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
     <form class="register-form w-full" method="post" action="{{route('register.user')}}">
         @csrf
         <section class="form-section">
@@ -140,7 +167,8 @@
                         name="user_first_name"
                         type="text"
                         required="required"
-                        placeholder="Nombre">
+                        placeholder="Nombre"
+                        data-parsley-pattern="^[a-zA-Z]+$">
                 </div>
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -153,7 +181,8 @@
                         name="user_last_name"
                         type="text"
                         required="required"
-                        placeholder="Apellido">
+                        placeholder="Apellido"
+                        data-parsley-pattern="^[a-zA-Z]+$">
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
