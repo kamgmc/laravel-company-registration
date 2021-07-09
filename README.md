@@ -27,7 +27,7 @@ Then start the database server using docker:
 
 Create a database called "register"
 
-Copy the ".env.example" file and pate it as ".env"
+Copy the ".env.example" file and paste it as ".env"
 
 Then generate a new app key:
 
