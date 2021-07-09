@@ -15,7 +15,7 @@
 </head>
 <body class="antialiased">
 <div class="w-full max-w-screen-lg mx-auto">
-    <form class="register-form w-full" method="post">
+    <form class="register-form w-full" method="post" action="{{route('register.user')}}">
         @csrf
         <section class="form-section">
             <div class="py-4">
@@ -28,12 +28,14 @@
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company-name">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="company-name">
                         Nombre <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-name"
+                        name="company_name"
                         type="text"
                         required="required"
                         placeholder="Nombre de la empresa">
@@ -46,7 +48,8 @@
                         <div class="relative w-20">
                             <select
                                 class="block appearance-none w-full border border-r-0 border-blue-300 text-gray-700 py-3 px-4 pr-8 rounded-tl rounded-bl leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
-                                id="company-rif">
+                                id="company-rif"
+                                name="company_rif_prefix">
                                 <option>J</option>
                                 <option>V</option>
                                 <option>G</option>
@@ -56,11 +59,13 @@
                         <input
                             class="appearance-none inline-block w-full text-gray-700 border border-l-0 border-blue-300 rounded-tr rounded-br py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                             id="company-rif"
+                            name="company_rif"
                             type="text"
                             required
                             placeholder="12345678"
                             data-parsley-type="digits"
                             minlength="6"
+                            maxlength="10"
                             data-parsley-errors-container="#rif-errors">
                     </div>
                     <div id="rif-errors"></div>
@@ -68,25 +73,30 @@
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company-phone">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="company-phone">
                         Teléfono <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-phone"
+                        name="company_phone"
                         type="text"
                         required
                         placeholder="02124567890"
                         minlength="10"
+                        maxlength="14"
                         data-parsley-type="digits">
                 </div>
                 <div class="w-full md:w-2/3 px-3 ">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company-email">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="company-email">
                         Email
                     </label>
                     <input
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-email"
+                        name="company_email"
                         type="email"
                         placeholder="test@example.com">
                 </div>
@@ -100,6 +110,7 @@
                     <textarea
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-address"
+                        name="company_address"
                         required
                         placeholder="Dirección de la empresa"></textarea>
                 </div>
@@ -119,23 +130,27 @@
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-first-name">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="user-first-name">
                         Nombre <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-first-name"
+                        name="user_first_name"
                         type="text"
                         required="required"
                         placeholder="Nombre">
                 </div>
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-last-name">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="user-last-name">
                         Apellido <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-last-name"
+                        name="user_last_name"
                         type="text"
                         required="required"
                         placeholder="Apellido">
@@ -143,14 +158,16 @@
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/3 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-document">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="user-document">
                         Cedula o RIF <span class="text-red-700">*</span>
                     </label>
                     <div class="flex">
                         <div class="relative w-20">
                             <select
                                 class="block appearance-none w-full border border-r-0 border-blue-300 text-gray-700 py-3 px-4 pr-8 rounded-tl rounded-bl leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
-                                id="user-document">
+                                id="user-document"
+                                name="user_document_prefix">
                                 <option selected>V</option>
                                 <option>J</option>
                                 <option>G</option>
@@ -160,11 +177,13 @@
                         <input
                             class="appearance-none inline-block w-full text-gray-700 border border-l-0 border-blue-300 rounded-tr rounded-br py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                             id="user-document"
+                            name="user_document"
                             type="text"
                             required
                             placeholder="12345678"
                             data-parsley-type="digits"
                             minlength="6"
+                            maxlength="10"
                             data-parsley-errors-container="#user-document-errors">
                     </div>
                     <div id="user-document-errors"></div>
@@ -176,10 +195,12 @@
                     <input
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-phone"
+                        name="user_phone"
                         type="text"
                         required
                         placeholder="02124567890"
                         minlength="10"
+                        maxlength="14"
                         data-parsley-type="digits">
                 </div>
                 <div class="w-full md:w-1/3 px-3 ">
@@ -189,6 +210,7 @@
                     <input
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-email"
+                        name="user_email"
                         type="email"
                         required
                         placeholder="test@example.com">
@@ -196,24 +218,28 @@
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-password">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="user-password">
                         Contraseña <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-password"
+                        name="user_password"
                         type="password"
                         required="required"
                         minlength="8"
                         placeholder="Contraseña">
                 </div>
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-password-validation">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                           for="user-password-validation">
                         Repetir contraseña <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="user-password-validation"
+                        name="user_password_confirmation"
                         type="password"
                         required="required"
                         placeholder="Repetir contraseña"

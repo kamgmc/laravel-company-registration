@@ -17,7 +17,7 @@ class CreateCompanyTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('rif')->unique();
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('phone');
             $table->text('address');
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company');
+        Schema::dropIfExists('companies');
     }
 }

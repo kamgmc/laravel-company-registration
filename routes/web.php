@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('register');
-});
+Route::get('/', [RegisterController::class, 'index']);
+Route::post('/', [RegisterController::class, 'create'])->name('register.user');
+Route::get('/login', [RegisterController::class, 'loginView'])->name('login.form');
+Route::post('/login', [RegisterController::class, 'login'])->name('login.form');
