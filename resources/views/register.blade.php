@@ -23,7 +23,7 @@
                     Registrar empresa
                 </div>
                 <div class="text-gray-400">
-                    Datos basicos para registrar su empresa en el sistema
+                    Datos básicos para registrar su empresa en el sistema
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-4">
@@ -59,6 +59,8 @@
                             type="text"
                             required
                             placeholder="12345678"
+                            data-parsley-type="digits"
+                            minlength="6"
                             data-parsley-errors-container="#rif-errors">
                     </div>
                     <div id="rif-errors"></div>
@@ -67,14 +69,16 @@
             <div class="flex flex-wrap -mx-3 mb-4">
                 <div class="w-full md:w-1/3 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company-phone">
-                        Telefono <span class="text-red-700">*</span>
+                        Teléfono <span class="text-red-700">*</span>
                     </label>
                     <input
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-phone"
                         type="text"
                         required
-                        placeholder="+581234567890">
+                        placeholder="02124567890"
+                        minlength="10"
+                        data-parsley-type="digits">
                 </div>
                 <div class="w-full md:w-2/3 px-3 ">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="company-email">
@@ -91,13 +95,129 @@
                 <div class="w-full px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                            for="company-address">
-                        Direccion <span class="text-red-700">*</span>
+                        Dirección <span class="text-red-700">*</span>
                     </label>
                     <textarea
                         class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
                         id="company-address"
                         required
-                        placeholder="Direccion de la empresa"></textarea>
+                        placeholder="Dirección de la empresa"></textarea>
+                </div>
+            </div>
+            <div class="w-full pl-4 text-xs italic">
+                (<span class="text-red-700">*</span>) Campos requeridos
+            </div>
+        </section>
+        <section class="form-section">
+            <div class="py-4">
+                <div class="uppercase text-xl text-blue-400 font-bold">
+                    Registrar usuario
+                </div>
+                <div class="text-gray-400">
+                    Datos básicos para registrar el usuario en el sistema
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-4">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-first-name">
+                        Nombre <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-first-name"
+                        type="text"
+                        required="required"
+                        placeholder="Nombre">
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-last-name">
+                        Apellido <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-last-name"
+                        type="text"
+                        required="required"
+                        placeholder="Apellido">
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-4">
+                <div class="w-full md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-document">
+                        Cedula o RIF <span class="text-red-700">*</span>
+                    </label>
+                    <div class="flex">
+                        <div class="relative w-20">
+                            <select
+                                class="block appearance-none w-full border border-r-0 border-blue-300 text-gray-700 py-3 px-4 pr-8 rounded-tl rounded-bl leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                                id="user-document">
+                                <option selected>V</option>
+                                <option>J</option>
+                                <option>G</option>
+                                <option>E</option>
+                            </select>
+                        </div>
+                        <input
+                            class="appearance-none inline-block w-full text-gray-700 border border-l-0 border-blue-300 rounded-tr rounded-br py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                            id="user-document"
+                            type="text"
+                            required
+                            placeholder="12345678"
+                            data-parsley-type="digits"
+                            minlength="6"
+                            data-parsley-errors-container="#user-document-errors">
+                    </div>
+                    <div id="user-document-errors"></div>
+                </div>
+                <div class="w-full md:w-1/3 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-phone">
+                        Teléfono <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-phone"
+                        type="text"
+                        required
+                        placeholder="02124567890"
+                        minlength="10"
+                        data-parsley-type="digits">
+                </div>
+                <div class="w-full md:w-1/3 px-3 ">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-email">
+                        Email <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full text-gray-700 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-email"
+                        type="email"
+                        required
+                        placeholder="test@example.com">
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-4">
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-password">
+                        Contraseña <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-password"
+                        type="password"
+                        required="required"
+                        minlength="8"
+                        placeholder="Contraseña">
+                </div>
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user-password-validation">
+                        Repetir contraseña <span class="text-red-700">*</span>
+                    </label>
+                    <input
+                        class="appearance-none block w-full bg-white text-gray-400 border border-blue-300 rounded py-3 px-4 leading-tight focus:outline-none focus:shadow-none focus:ring-0 focus:border-blue-500"
+                        id="user-password-validation"
+                        type="password"
+                        required="required"
+                        placeholder="Repetir contraseña"
+                        data-parsley-equalto="#user-password">
                 </div>
             </div>
             <div class="w-full pl-4 text-xs italic">
@@ -107,11 +227,11 @@
         <div class="form-navigation w-full flex justify-end">
             <button class="previous bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 mx-2 rounded"
                     type="button">
-                Anterior
+                Regresar
             </button>
             <button class="next bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 ml-2 rounded"
                     type="button">
-                Siguiente
+                Continuar
             </button>
             <button class="send bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 ml-4 rounded"
                     type="submit">
@@ -129,13 +249,15 @@
         let $sections = $('.form-section')
         const $nextButton = $('.form-navigation .next')
         const $previousButton = $('.form-navigation .previous')
+        const $sendButton = $('.form-navigation .send')
+        const $form = $('.register-form')
 
         function navigateTo(index) {
             $sections.removeClass('current').eq(index).addClass('current')
             $previousButton.toggle(index > 0)
             const isLastSection = index >= $sections.length - 1
             $nextButton.toggle(!isLastSection)
-            $('.form-navigation .send').toggle(isLastSection)
+            $sendButton.toggle(isLastSection)
         }
 
         function currentIndex() {
@@ -147,10 +269,18 @@
         })
 
         $nextButton.click(function () {
-            $('.register-form').parsley().whenValidate({
+            $form.parsley().whenValidate({
                 group: 'block-' + currentIndex()
             }).done(function () {
                 navigateTo(currentIndex() + 1);
+            });
+        });
+
+        $sendButton.click(function () {
+            $form.parsley().whenValidate({
+                group: 'block-' + currentIndex()
+            }).done(function () {
+                $form.submit()
             });
         });
 
