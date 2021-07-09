@@ -27,6 +27,12 @@ Then start the database server using docker:
 
 Create a database called "register"
 
+Copy the ".env.example" file and pate it as ".env"
+
+Then generate a new app key:
+
+``$ php artisan key:generate``
+
 Run migrations
 
 ``$ php artisan migrate``
