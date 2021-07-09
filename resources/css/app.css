@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.form-section {
+    display: none;
+}
+
+.form-section.current {
+    display: inherit;
+}
+
+.parsley-errors-list {
+    margin: 2px 0 3px;
+    padding: 0;
+    list-style-type: none;
+    color: #E53E3E;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-style: italic;
+}
